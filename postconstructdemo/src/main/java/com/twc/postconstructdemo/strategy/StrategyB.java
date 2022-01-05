@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @Author: twc
  * @Date 2022/1/4 22:18
  **/
-@Component
+@Component("B")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class StrategyB  implements FilterStrategy{
 
@@ -24,6 +24,7 @@ public class StrategyB  implements FilterStrategy{
 
   @PostConstruct
   public void init(){
+    System.out.println("StrategyB postconstruct执行。。。。。。");
      filterB.setNextFilter(filterC);
      filterC.setNextFilter(filterD);
   }

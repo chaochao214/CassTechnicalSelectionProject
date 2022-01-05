@@ -8,13 +8,15 @@ import javax.annotation.PostConstruct;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 /**
  * @Author: twc
  * @Date 2022/1/4 22:18
  **/
-@Component
+//@DependsOn("B")
+@Component("A")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class StrategyA  implements  FilterStrategy{
 
@@ -30,8 +32,10 @@ public class StrategyA  implements  FilterStrategy{
 
   @PostConstruct
   public void init(){
+    System.out.println("StrategyA postconstruct执行。。。。。。");
        filterA.setNextFilter(filterB);
        filterB.setNextFilter(filterC);
+       filterC.setNextFilter(null);
   }
 
 

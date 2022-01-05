@@ -22,6 +22,8 @@ class PostconstructdemoApplicationTests {
    **/
   @Test
   public void testA() {
+
+    System.out.println("未开始过滤");
     strategyAService.doFilter();
   }
 
